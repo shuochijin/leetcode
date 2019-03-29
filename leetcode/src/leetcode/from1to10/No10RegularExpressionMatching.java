@@ -45,7 +45,9 @@ public class No10RegularExpressionMatching {
 		}
 		
 		List<Integer> stack = new ArrayList<Integer>();
-		for(int i = 0; i < )
+		for(int i = 0; i < array.size(); ++ i) {
+			
+		}
 		
 		return result;
 	}
