@@ -2,6 +2,7 @@ package leetcode.from1to10;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class No10RegularExpressionMatching {
 	
@@ -15,7 +16,7 @@ public class No10RegularExpressionMatching {
 	}
 	
 	public boolean isMatch(String s, String p) {
-		boolean result = true;
+		boolean result = false;
 		List<String> array = new ArrayList<String>();
 		char[] pchars = p.toCharArray();
 		for(int i = 0; i < pchars.length; ++ i) {
@@ -44,9 +45,35 @@ public class No10RegularExpressionMatching {
 			}
 		}
 		
-		List<Integer> stack = new ArrayList<Integer>();
+		Stack<Integer> stack = new Stack<Integer>();
+		int point = 0;
 		for(int i = 0; i < array.size(); ++ i) {
-			
+			String node = array.get(i);
+			if(node.equals("*.")) {
+				if(stack.get(i) == null) {
+					stack.add(point);
+				}else {
+					point = stack.pop();
+					point ++;
+					stack.push(point);
+				}
+			}else if(node.startsWith("*")) {
+				char c = node.charAt(1);
+				point = stack.pop();
+				point ++;
+				if(s.charAt(point) != c) {
+					break;
+				}
+				stack.push(point);
+			}else {
+				
+			}
+			if(point == pchars.length) {
+				break;
+			}
+			if(i == array.size() - 1 && point == pchars.length) {
+				result = true;
+			}
 		}
 		
 		return result;
