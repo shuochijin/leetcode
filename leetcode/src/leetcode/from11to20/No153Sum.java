@@ -1,11 +1,15 @@
 package leetcode.from11to20;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class No153Sum {
 	
 	public static void main(String[] args) {
+		int[] nums = new int[] {-1, 0, 1, 2, -1, -4};
+		Arrays.sort(nums);
+		System.out.println(nums);
 		No153Sum n = new No153Sum();
 		System.out.println(n.threeSum(new int[] {-1, 0, 1, 2, -1, -4}));
 		System.out.println(n.threeSum(new int[] {-1,0,1,2,-1,-4}));
@@ -13,6 +17,13 @@ public class No153Sum {
 
 	private List<List<Integer>> result;
 	public List<List<Integer>> threeSum(int[] nums) {
+		Arrays.sort(nums);
+		int zeroOrP = -1;
+		for(int i = 0; i < nums.length; ++ i) {
+			if(nums[i] >= 0) {
+				zeroOrP = i;
+			}
+		}
 		result  = new ArrayList<List<Integer>>();
 		for(int i = 0; i < nums.length - 2; ++ i) {
 			for(int j = i + 1; j < nums.length - 1; ++ j) {
