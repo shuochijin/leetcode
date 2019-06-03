@@ -1,5 +1,7 @@
 package leetcode.from21to30;
 
+import util.ListNode;
+
 public class No21MergeTwoSortedLists {
 	
 	public static void main(String[] args) {
@@ -21,31 +23,27 @@ public class No21MergeTwoSortedLists {
 	
 	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 		ListNode result = new ListNode(0);
-		result.next = l1;
-		l1 = result;
+		ListNode resultP = result;
+		ListNode temp;
 		
-		ListNode p = new ListNode(0);
-		p = l2;
-		ListNode tmp;
-		while(p != null) {
-			if(l1.next != null) {
-				break;
+		while(l1 != null || l2 != null) {
+			if(l1 != null) {
+				if(l2 != null && l1.val > l2.val) {
+					temp = l2;
+					l2 = l2.next;
+				} else {
+					temp = l1;
+					l1 = l1.next;
+				}
+			} else {
+				temp = l2;
+				l2 = l2.next;
 			}
-			if(l1.next.val > p.val) {
-				tmp = p;
-				p = p.next;
-				tmp.next = l1.next;
-				l1.next = tmp;
-			}
-			l1 = l1.next;
+			resultP.next = temp;
+			resultP = temp;
+			resultP.next = null;
 		}
-		l1.next = p;
 		
 		return result.next;
 	}
-}
-class ListNode {
-	int val;
-	ListNode next = null;
-	ListNode(int x) { val = x; }
 }
