@@ -1,5 +1,7 @@
 package leetcode.from11to20;
 
+import util.ListNode;
+
 public class No19RemoveNthNodeFromEndofList {
 	
 	public static void main(String[] args) {
@@ -29,9 +31,4 @@ public class No19RemoveNthNodeFromEndofList {
 		}
 		return head;
 	}
-}
-class ListNode {
-	int val;
-	ListNode next;
-	ListNode(int x) { val = x; }
 }
