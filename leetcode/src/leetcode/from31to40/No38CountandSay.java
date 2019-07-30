@@ -4,46 +4,36 @@ public class No38CountandSay {
 	
 	public static void main(String[] args) {
 		No38CountandSay n = new No38CountandSay();
-		System.out.println(n.countAndSay(1));
-		System.out.println(n.countAndSay(2));
+		//System.out.println(n.countAndSay(1));
+		//System.out.println(n.countAndSay(2));
 		System.out.println(n.countAndSay(3));
 		System.out.println(n.countAndSay(4));
 		System.out.println(n.countAndSay(5));
 	}
 	
 	public String countAndSay(int n) {
-		StringBuilder result = new StringBuilder();
-		result.append(1);
-		
-		int seq;
-		int digit;
-		int temp;
-		int count;
-		while(n > 1) {
-			seq = Integer.parseInt(result.toString());
-			result = new StringBuilder();
-			digit = seq % 10;
-			count = 0;
-			while(seq > 0) {
-				temp = seq % 10;
-				seq = seq / 10;
-				if(digit == temp && seq > 0) {
+		StringBuffer sb = new StringBuffer("1");
+		String v = "1";
+		for(int i = 1; i < n; ++ i) {
+			sb = new StringBuffer();
+			char pre = v.charAt(0);
+			int count = 1;
+			for(int j = 1; j < v.length(); ++ j) {
+				if(v.charAt(j) == pre) {
 					count ++;
 				} else {
-					if(digit == temp && seq == 0) {
-						count ++;
-						result.append(digit + "" + count);
-					} else {
-						result.append(digit + "" + count);
-						count = 1;
-						digit = temp;
-					}
+					sb.append(count + "" + pre);
+					pre = v.charAt(j);
+					count = 0;
+					-- j;
 				}
 			}
-			result = result.reverse();
-			n --;
+			if(count > 0) {
+				sb.append(count + "" + pre);
+			}
+			v = sb.toString();
 		}
 		
-		return result.reverse().toString();
+		return sb.toString();
 	}
 }
