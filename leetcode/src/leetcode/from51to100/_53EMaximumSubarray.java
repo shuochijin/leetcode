@@ -1,9 +1,9 @@
 package leetcode.from51to100;
 
-public class NoE53MaximumSubarray {
+public class _53EMaximumSubarray {
 	
 	public static void main(String[] args) {
-		NoE53MaximumSubarray n = new NoE53MaximumSubarray();
+		_53EMaximumSubarray n = new _53EMaximumSubarray();
 		System.out.println(n.maxSubArray(new int[] {1}));
 		System.out.println(n.maxSubArray(new int[] {-1,-2}));
 		System.out.println(n.maxSubArray(new int[] {-2,1,-3,4,-1,2,1,-5,4}));
