@@ -1,9 +1,9 @@
 package leetcode.from51to100;
 
-public class NoE67AddBinary {
+public class _67EAddBinary {
 	
 	public static void main(String[] args) {
-		NoE67AddBinary n = new NoE67AddBinary();
+		_67EAddBinary n = new _67EAddBinary();
 		System.out.println(n.addBinary("1010", "1011"));
 	}
 	

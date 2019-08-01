@@ -2,10 +2,10 @@ package leetcode.from51to100;
 
 import java.util.Arrays;
 
-public class NoE66PlusOne {
+public class _66EPlusOne {
 	
 	public static void main(String[] args) {
-		NoE66PlusOne n = new NoE66PlusOne();
+		_66EPlusOne n = new _66EPlusOne();
 		System.out.println(Arrays.toString(n.plusOne(new int[] {8,9,9,9})));
 		System.out.println(Arrays.toString(n.plusOne(new int[] {9,8,7,6,5,4,3,2,1,0})));
 	}
