@@ -1,5 +1,7 @@
 package leetcode.from1to1000.from101to200;
 
+import java.util.Stack;
+
 import util.TreeNode;
 
 public class _108EConvertSortedArraytoBinarySearchTree {
@@ -18,19 +20,12 @@ public class _108EConvertSortedArraytoBinarySearchTree {
 	}
 	
 	public TreeNode sortedArrayToBST(int[] list) {
-		TreeNode root = null;
-		int i = list.length;
-		int count = 1;
-		i = i >> 1;
-		while(i > 0) {
-			i = i >> 1;
-			count =  count << 1;
+		TreeNode root = new TreeNode(list[list.length / 2], null, null);
+		Stack stack = new Stack<Integer>();
+		stack.push(list.length / 2);
+		while(stack.size() > 0) {
+			
 		}
-		if(count < list.length) {
-			count = count << 1;
-		}
-		
-		Integer[] is = new Integer[count];
 		return root;
 	}
 }
