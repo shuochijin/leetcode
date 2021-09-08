@@ -2,18 +2,93 @@ package leetcode.from1to1000.from001to100.from21to30;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
 public class No30SubstringwithConcatenationofAllWords {
-	
 	public static void main(String[] args) {
-		No30SubstringwithConcatenationofAllWords n = new No30SubstringwithConcatenationofAllWords();
-		System.out.println(n.findSubstring("barfoothefoobarman", new String[] {"foo","bar"}));
-		System.out.println(n.findSubstring("wordgoodgoodgoodbestword", new String[] {"word","good","best","word"}));
-		System.out.println(n.findSubstring("wordgoodgoodgoodbestword", new String[] {"word","good","best","good"}));
-		System.out.println(n.findSubstring("lingmindraboofooowingdingbarrwingmonkeypoundcake", new String[] {"fooo","barr","wing","ding","wing"}));
+		String s = "123456789";
+		System.out.println(s.substring(1, 0 + 2));
+		System.out.println(s.substring(2, 0 + 3));
+		System.out.println(s.substring(3, 0 + 4));
+//		No30SubstringwithConcatenationofAllWords n = new No30SubstringwithConcatenationofAllWords();
+//		System.out.println(n.findSubstring("barfoothefoobarman", new String[] {"foo","bar"}));
+//		System.out.println(n.findSubstring("wordgoodgoodgoodbestword", new String[] {"word","good","best","word"}));
+//		System.out.println(n.findSubstring("wordgoodgoodgoodbestword", new String[] {"word","good","best","good"}));
+//		System.out.println(n.findSubstring("lingmindraboofooowingdingbarrwingmonkeypoundcake", new String[] {"fooo","barr","wing","ding","wing"}));
 	}
+	
+	class StringListNode{
+		public StringListNode() {}
+		public StringListNode(String word) {
+			this.word = word;
+		}
+		public String word;
+		public StringListNode next = null;
+	}
+	
+	class Bucket{
+		Bucket[] next = null;
+		String word = null;
+	}
+	
+	public Bucket buildBucketIndex(String[] words) {
+		Bucket bucket = new Bucket();
+		Bucket[] tmpBucketUnit;
+		int length = words[0].length();
+		
+		for(int i = 0, j; i < words.length; ++ i) {
+			bucket.next = new Bucket[26];
+			tmpBucketUnit = bucket.next;
+			for(j = 0; j < length - 1; ++ j) {
+				tmpBucketUnit[words[i].charAt(j) - 'a'].next = new Bucket[26];
+				tmpBucketUnit = tmpBucketUnit[words[i].charAt(j) - 'a'].next;
+			}
+			tmpBucketUnit[j].word = words[i];
+		}
+		
+		return bucket;
+	}
+	
+	public String judgeIndex(String s, Bucket root, int index) {
+		String word = null;
+		return word;
+	}
+	
+	public List<Integer> findSubstring2(String s, String[] words) {
+		List<Integer> result = new ArrayList<Integer>();
+		
+		StringListNode head = new StringListNode();
+		StringListNode tail = new StringListNode();
+		tail.next = head;
+		
+		StringListNode matchedList = new StringListNode();
+		
+		StringListNode matchedListTail = new StringListNode();
+		matchedListTail.next = matchedList;
+		
+		StringListNode swapTmpNode = new StringListNode();
+		
+		for(int i = 0; i < words.length; ++ i) {
+			tail.next.next = new StringListNode(words[i]);
+			tail = tail.next;
+		}
+		
+		Bucket bucketRoot = buildBucketIndex(words);
+		
+		String tmp;
+		for(int i = 0; i < s.length(); ++ i) {
+			tmp = judgeIndex(s, bucketRoot, i);
+			if(tmp != null) {
+				swapTmpNode.next
+				for()
+			}
+		}
+		
+		return result;
+	}
+	
 	
 	public List<Integer> findSubstring(String s, String[] words) {
 		List<Integer> result = new ArrayList<Integer>();
