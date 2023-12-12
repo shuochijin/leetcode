@@ -4,7 +4,8 @@ public class _190EReverseBits {
 	
 	public static void main(String[] args) {
 		int n = buildBinaryInt("11111111111111111111111111111101");
-		System.out.println(reverseBits(n));
+		System.out.println(n);
+		System.out.println(buildBitsToNumer(n));
 	}
 	
 	public static int buildBinaryInt(String s) {
@@ -18,7 +19,7 @@ public class _190EReverseBits {
 		return n;
 	}
 	
-	public static int reverseBits(int n) {
+	public static int buildBitsToNumer(int n) {
 		if(n < 0) {
 			n &= Integer.MAX_VALUE;
 			n += Integer.MAX_VALUE + 1;
